@@ -5,38 +5,38 @@ void main() {
 
   while (orderAgain == "yes") {
     print("================================");
-    print("Pizza Price:");
-    print("Small: 5 USD, Medium: 7 USD, Large: 10 USD");
+    print("Pizza Price: Small: 5 USD, Medium: 7 USD, Large: 10 USD");
     
-    stdout.write("Enter pizza size (small, medium or large): ");
+    
+    print("Please enter pizza size (small, medium or large): ");
     String? sizeInput = stdin.readLineSync();
     String pizzaSize = sizeInput != null ? sizeInput.trim().toLowerCase() : "";
 
-    stdout.write("How many pizzas do you want of $pizzaSize? ");
-    String? quantityInput = stdin.readLineSync();
-    int quantity = int.tryParse(quantityInput ?? "") ?? 0;
+    print("How many pizzas do you want of $pizzaSize? ");
+    String?quantityInput=stdin.readLineSync();
+    int quantity=int.tryParse(quantityInput ?? "") ?? 0;
 
     int total = 0;
 
     switch (pizzaSize) {
       case "small":
-        total = quantity * 5;
+        total=quantity*5;
         break;
       case "medium":
-        total = quantity * 7;
+        total=quantity*7;
         break;
       case "large":
-        total = quantity * 10;
+        total=quantity*10;
         break;
       default:
-        print("Invalid pizza size selected.");
-        continue; // Restart the while loop for invalid inputs
+        print("Invalid pizza size.");
+        continue; 
     }
 
-    print("Your Total Payment is: $total USD");
-    print("================================");
+    print("Your Total Payment is: \$$total");
     
-    stdout.write("Order again? (yes/no): ");
+    
+    print("Order again? (yes/no): ");
     String? againInput = stdin.readLineSync();
     orderAgain = againInput != null ? againInput.trim().toLowerCase() : "no";
   }
